@@ -256,6 +256,7 @@ bool OSUtils::osMoveFile(const char* szFrom, const char* szTo)
 #include <sys/sendfile.h>
 #include <dlfcn.h>
 #include <sys/wait.h>
+#include <sys/time.h>
 
 
 OSUtils::OSUtils() :
@@ -278,9 +279,10 @@ ULONGLONG OSUtils::GetTimeNanos()
     }
     else
     {
-        clock_gettime(CLOCK_MONOTONIC, &tp);
+        clock_gettime(CLOCK_REALTIME, &tp);
+        // clock_gettime(CLOCK_MONOTONIC, &tp);
         return static_cast<unsigned long long>(tp.tv_sec) * (1000ULL * 1000ULL * 1000ULL) +
-            static_cast<unsigned long long>(tp.tv_nsec);
+        static_cast<unsigned long long>(tp.tv_nsec);
     }
 }
 

@@ -589,11 +589,11 @@ int ProfileApplication(const std::string& strCounterFile, const int& profilerBit
     //----------------------------------------
 
     //check that the application to be profiled is valid
-    if (!CheckIsAppValid(config.strInjectedApp, profilerBits))
-    {
-        wcout << config.strInjectedApp.asCharArray() << " is not a valid application" << endl;
-        return -1;
-    }
+    // if (!CheckIsAppValid(config.strInjectedApp, profilerBits))
+    // {
+    //     wcout << config.strInjectedApp.asCharArray() << " is not a valid application" << endl;
+    //     return -1;
+    // }
 
 #ifdef _DEBUG
     bool reportPerfCounterEnablement = true;
